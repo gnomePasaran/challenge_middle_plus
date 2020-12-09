@@ -1,0 +1,19 @@
+- if @event.errors.any?
+  .error_explanation
+    %h2= "#{pluralize(@event.errors.count, 'error')} prohibited this article from being saved:"
+    %ul
+      - @event.errors.full_messages.each do |msg|
+        %li.danger= msg
+
+.row
+  .col-lg-9
+    = simple_form_for @event do |f|
+      .form-group.string.optional.category_text.form-group-valid
+        = f.input :title
+        = f.association :event_type, include_blank: false
+        = f.input :date
+        = f.input :start_at
+        = f.input :finish_at
+        = f.input :description
+
+      = f.submit 'ok', { class: 'btn btn-success' }

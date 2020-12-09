@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChallengeMiddlePlus
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .navbar.navbar-expand-lg.navbar-dark.bg-dark.navbar-mb-10
+      - if current_user
+        = button_to 'sign_out', destroy_user_session_path, method: :delete, class: 'btn btn-light'
+      = image_tag('evrone.jpg', width: '50px')
+
+    .container
+      = yield

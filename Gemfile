@@ -35,9 +35,13 @@ gem 'hamlit'
 # Auth
 gem 'devise'
 
+# Front
+gem 'kaminari'
+gem 'simple_form'
+
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'ffaker'
   gem 'rspec-rails'
 
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

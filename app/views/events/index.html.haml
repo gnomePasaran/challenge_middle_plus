@@ -1,0 +1,30 @@
+.clearfix
+  .float-sm-right
+    %a.btn.btn-success{href: new_event_path, role: "button"}
+      %span.oi.oi-plus
+      = t("new")
+
+  = button_to 'Export to CSV', export_path, method: :post, class: 'btn btn-danger'
+
+  %h2= t("Events")
+
+%hr
+
+.row
+  .col-lg-10
+    .table-responsive
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th.border-top-0
+            %th.border-top-0= t("title")
+            %th.border-top-0= t("author")
+            %th.border-top-0= t("event date")
+            %th.border-top-0= t("duration hours")
+            %th.border-top-0
+        %tbody
+          - if @events.any?
+            -# = render @events
+            - @events.each do |event|
+              = render partial: 'event', locals: { event: EventPresenter.new(event) }
+    = paginate @events

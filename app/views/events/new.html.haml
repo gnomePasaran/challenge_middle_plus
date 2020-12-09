@@ -1,0 +1,9 @@
+%nav{'aria-label' => 'breadcrumb'}
+  %ol.breadcrumb
+    %li.breadcrumb-item
+      %a{href: events_path}
+        = t('title')
+
+%h1= t('events.new')
+
+= render 'form'

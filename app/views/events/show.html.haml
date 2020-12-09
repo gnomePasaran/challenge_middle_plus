@@ -1,0 +1,20 @@
+%nav{'aria-label' => 'breadcrumb'}
+  %ol.breadcrumb
+    %li.breadcrumb-item
+      %a{href: events_path}
+        = t('title')
+
+%h1= t('events.edit')
+
+.form-group.string.optional.category_text.form-group-valid
+  = @event.title
+  %br
+  = @event.event_type.title
+  %br
+  = @event.date
+  %br
+  = @event.start_at
+  %br
+  = @event.finish_at
+  %br
+  = @event.description

@@ -1,0 +1,15 @@
+%tr
+  %td
+    %span.oi.oi-move.sort-icon
+  %td= event.title
+  %td= event.author
+  %td= event.date
+  %td= event.duration
+  %td
+    %a.text-nowrap.btn.btn-secondary.btn-sm{href: event_path(event.id), role: "button"}
+      %span.oi.oi-eye
+      = t("Show")
+    - if allowed_to_event?(event)
+      %a.text-nowrap.btn.btn-primary.btn-sm{href: edit_event_path(event.id), role: "button"}
+        %span.oi.oi-pencil
+        = t("edit")
