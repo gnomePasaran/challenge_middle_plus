@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: '' #localhost
+  username: alex
+  port: 5432
+  password:
+
+development:
+  <<: *default
+  database: challenge_middle_plus_development
+
+test:
+  <<: *default
+  database: challenge_middle_plus_test
+
+production:
+  <<: *default
+  database: challenge_middle_plus_production
+  username: challenge_middle_plus
+  password: <%= ENV['CHALLENGE_MIDDLE_DATABASE_PASSWORD'] %>
